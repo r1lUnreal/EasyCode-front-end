@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Билеты в дубай</title>
+</head>
+<body>
+    <div class="form-container">
+        <!-- Главный текст страницы -->
+        <h1>Покупка билетов в дубай</h1>
+        <!-- Главный тег страницы -->
+        <form class="ticket-form">
+            <!-- Запрос имени от пользователя -->
+            <div class="form-group">
+                <label for="name">Имя:</label>
+                <input type="text" id="name" name="name" required>
+            </div>
+            <!-- Ввод даты поездки от пользователя -->
+            <div class="form-group">
+                <label for="date">Дата поездки:</label>
+                <input type="date" id="date" name="date" required>
+            </div>
+
+            <!-- Выбор класса билета -->
+            <div class="form-group">
+                <label for="class">Класс билета:</label>
+                <select id="class" name="class" required>
+                    <option value="economy">Эконом</option>
+                    <option value="business">Бизнес</option>
+                </select>
+            </div>
+            <!-- Кнопка купить билет  -->
+            <button type="submit">Купить билет</button>
+        </form>
+    </div>
+</body>
+</html>
