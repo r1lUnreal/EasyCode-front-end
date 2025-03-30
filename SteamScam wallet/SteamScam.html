@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Пополнение баланса Steam | SteamScam</title>
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #1b2838;
+            color: #e6e6e6;
+            font-family: 'Arial', sans-serif;
+        }
+        .navbar-brand {
+            color: #67c1f5 !important;
+            font-weight: bold;
+        }
+        .main-container {
+            background-color: #2a3f5a;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.5);
+        }
+        h1, h2, h3, h4 {
+            color: #67c1f5;
+        }
+        .payment-method {
+            background-color: #3d4450;
+            border: 1px solid #4e5a6a;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        .payment-method:hover {
+            background-color: #4e5a6a;
+        }
+        .payment-method.active {
+            background-color: #67c1f5;
+            color: #171a21;
+            border-color: #67c1f5;
+        }
+        .form-control, .form-select {
+            background-color: #3d4450;
+            border: 1px solid #4e5a6a;
+            color: #e6e6e6;
+        }
+        .form-control:focus, .form-select:focus {
+            background-color: #4e5a6a;
+            color: #ffffff;
+            border-color: #67c1f5;
+            box-shadow: 0 0 0 0.25rem rgba(103, 193, 245, 0.25);
+        }
+        .btn-primary {
+            background-color: #5ba32b;
+            border-color: #5ba32b;
+            font-weight: bold;
+        }
+        .btn-primary:hover {
+            background-color: #6bb93d;
+            border-color: #6bb93d;
+        }
+        .info-box {
+            background-color: #3d4450;
+            border-radius: 5px;
+        }
+        footer {
+            color: #8f98a0;
+        }
+    </style>
+</head>
+<body>
+    <!-- Навигация -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">SteamScam</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Главная</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="SteamScam.html">Пополнение</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="support.html">Поддержка</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Основной контент -->
+    <div class="container my-4">
+        <div class="main-container p-4 p-md-5">
+            <h1 class="mb-4">Пополнение баланса Steam</h1>
+            
+            <form>
+                <!-- Аккаунт Steam -->
+                <div class="mb-3">
+                    <label for="steamAccount" class="form-label">Логин Steam</label>
+                    <input type="text" class="form-control" id="steamAccount" placeholder="Введите логин, email или SteamID">
+                </div>
+                
+                <!-- Сумма пополнения -->
+                <div class="mb-3">
+                    <label for="amount" class="form-label">Сумма пополнения (руб.)</label>
+                    <input type="number" class="form-control" id="amount" min="100" max="15000" value="500">
+                </div>
+                
+                <!-- Методы оплаты -->
+                <h3 class="mt-4 mb-3">Способы оплаты</h3>
+                <div class="row g-2 mb-4">
+                    <div class="col-6 col-md-4 col-lg-3">
+                        <div class="payment-method p-2 text-center active" data-method="card">
+                            <i class="bi bi-credit-card"></i> Банковская карта
+                        </div>
+                    </div>
+                    <div class="col-6 col-md-4 col-lg-3">
+                        <div class="payment-method p-2 text-center" data-method="yoomoney">
+                            <i class="bi bi-wallet2"></i> ЮMoney
+                        </div>
+                    </div>
+                    <div class="col-6 col-md-4 col-lg-3">
+                        <div class="payment-method p-2 text-center" data-method="sbp">
+                            <i class="bi bi-cash-coin"></i> Сбер-Pay
+                        </div>
+                    </div>
+                    <div class="col-6 col-md-4 col-lg-3">
+                        <div class="payment-method p-2 text-center" data-method="sbp">
+                            <i class="bi bi-phone"></i> Т-Pay
+                        </div>
+                    </div>
+                    <div class="col-6 col-md-4 col-lg-3">
+                        <div class="payment-method p-2 text-center" data-method="crypto">
+                            <i class="bi bi-currency-bitcoin"></i> Криптовалюта
+                        </div>
+                    </div>
+                    <div class="col-6 col-md-4 col-lg-3">
+                        <div class="payment-method p-2 text-center" data-method="mobile">
+                            <i class="bi bi-bank"></i> Мобильный платеж
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Данные карты (по умолчанию видно) -->
+                <div id="card-payment">
+                    <div class="mb-3">
+                        <label for="cardNumber" class="form-label">Номер карты</label>
+                        <input type="text" class="form-control" id="cardNumber" placeholder="0000 0000 0000 0000">
+                    </div>
+                    
+                    <div class="row g-3">
+                        <div class="col-md-6">
+                            <label for="cardExpiry" class="form-label">Срок действия</label>
+                            <input type="text" class="form-control" id="cardExpiry" placeholder="ММ/ГГ">
+                        </div>
+                        <div class="col-md-6">
+                            <label for="cardCvv" class="form-label">CVV/CVC</label>
+                            <input type="text" class="form-control" id="cardCvv" placeholder="123">
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Другие методы оплаты (изначально скрыты) -->
+                <div id="other-payment" class="d-none">
+                    <div class="mb-3">
+                        <label id="other-method-label" class="form-label">Данные для оплаты</label>
+                        <input type="text" class="form-control" id="other-method-input" placeholder="Введите данные">
+                    </div>
+                </div>
+                
+                <!-- Email -->
+                <div class="mb-4">
+                    <label for="email" class="form-label">Email для чека</label>
+                    <input type="email" class="form-control" id="email" placeholder="your@email.com">
+                </div>
+                
+                <!-- Кнопка оплаты -->
+                <button type="submit" class="btn btn-primary btn-lg w-100 py-3">Пополнить баланс</button>
+            </form>
+            
+            <!-- Информационный блок -->
+            <div class="info-box p-4 mt-5">
+                <h3 class="mb-3">Как это работает?</h3>
+                <div class="row">
+                    <div class="col-md-6 mb-3">
+                        <div class="d-flex">
+                            <div class="me-3 text-primary">1.</div>
+                            <div>Введите данные своего аккаунта Steam и сумму пополнения</div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <div class="d-flex">
+                            <div class="me-3 text-primary">2.</div>
+                            <div>Выберите удобный способ оплаты</div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <div class="d-flex">
+                            <div class="me-3 text-primary">3.</div>
+                            <div>Совершите платеж (комиссия 4%)</div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <div class="d-flex">
+                            <div class="me-3 text-primary">4.</div>
+                            <div>Получите средства на баланс Steam в течение 5 минут</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Футер -->
+        <footer class="text-center mt-4 py-3">
+            <p class="mb-1">© 2025 SteamScam.</p>
+            <p class="mb-0">Пополнение баланса Steam Wallet с минимальной комиссией.</p>
+        </footer>
+    </div>
+
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+    
+    <!-- Bootstrap JS Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <script>
+        // Переключение методов оплаты
+        document.querySelectorAll('.payment-method').forEach(method => {
+            method.addEventListener('click', function() {
+                // Удаляем активный класс у всех методов
+                document.querySelectorAll('.payment-method').forEach(m => {
+                    m.classList.remove('active');
+                });
+                
+                // Добавляем активный класс текущему методу
+                this.classList.add('active');
+                
+                // Получаем тип выбранного метода
+                const methodType = this.getAttribute('data-method');
+                
+                // Управляем видимостью блоков оплаты
+                if(methodType === 'card') {
+                    document.getElementById('card-payment').classList.remove('d-none');
+                    document.getElementById('other-payment').classList.add('d-none');
+                } else {
+                    document.getElementById('card-payment').classList.add('d-none');
+                    document.getElementById('other-payment').classList.remove('d-none');
+                    
+                    // Обновляем текст в зависимости от выбранного метода
+                    const label = document.getElementById('other-method-label');
+                    const input = document.getElementById('other-method-input');
+                    
+                    switch(methodType) {                       
+                        case 'yoomoney':
+                            label.textContent = 'Номер ЮMoney кошелька';
+                            input.placeholder = '410011234567890';
+                            break;
+                        case 'crypto':
+                            label.textContent = 'Адрес кошелька';
+                            input.placeholder = '0x... или bc1...';
+                            break;
+                        case 'sbp':
+                            label.textContent = 'Номер карты';
+                            input.placeholder = '1234 56•• •••• 7890';
+                            break;
+                        case 'mobile':
+                            label.textContent = 'Номер телефона';
+                            input.placeholder = '+79001232113';
+                    }
+                }
+            });
+        });
+    </script>
+</body>
+</html>
