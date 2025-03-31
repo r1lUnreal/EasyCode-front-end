@@ -79,10 +79,6 @@
             color: rgb(206, 206, 206);
         }
 
-        ::placeholder {
-            color: rgb(206, 206, 206) !important;
-        }
-
         .dropdown-menu {
             background-color: rgb(27, 40, 56);
             border: 1px solid #2a475e;
@@ -115,6 +111,17 @@
 
         .reviews-section {
             margin-top: 4%;
+        }
+
+        input[type="search"] {
+            -webkit-text-fill-color: rgb(206, 206, 206);
+            /* для введенного текста в WebKit (Chrome, Safari) */
+            color: rgb(206, 206, 206);
+            /* для других браузеров */
+        }
+        
+        .navbar-toggler {
+            background-color: #3f5e84;
         }
     </style>
 </head>
