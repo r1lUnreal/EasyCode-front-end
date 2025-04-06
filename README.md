@@ -33,22 +33,14 @@ yarn add bootstrap@5.3.3
 ## 📂 Проекты в репозитории
 
 ### 🔐 SteamScan Wallet
-![Wallet Preview](https://via.placeholder.com/400x200/4A5568/FFFFFF?text=SteamScan+Wallet)  
-*Современный крипто-кошелек с интуитивным интерфейсом*  
-📌 Основные файлы: `wallet.sig`, `index.html`  
-🔄 Последнее обновление: 5 дней назад  
+![Wallet Preview](https://steamscam.yhub.net/)  
+*Сайт для пополнения steam*  
+📌 Основные файлы: `index.html`  
 
 ### ☕ Coffee House
 ![Coffee Preview](https://via.placeholder.com/400x200/4A5568/FFFFFF?text=Coffee+House)  
 *Элегантный интерфейс для кофейни*  
 📌 Расположение: `coffee/` директория  
-🔄 Последнее обновление: 1 минуту назад  
-
-### 🔍 Query System
-![Query Preview](https://via.placeholder.com/400x200/4A5568/FFFFFF?text=Query+System)  
-*Мощная система запросов и фильтрации*  
-📌 Расположение: `query/` директория  
-🔄 Последнее обновление: 2 недели назад  
 
 ## 🖥️ Как запустить
 
@@ -65,26 +57,16 @@ npm start
 
 | Проект | Ссылка | Описание |
 |--------|--------|----------|
-| SteamScan Wallet | [ВСТАВЬТЕ ССЫЛКУ] | Основной веб-кошелек |
+| SteamScan Wallet | [(https://steamscam.yhub.net/)] | Основной веб-кошелек |
 | Coffee House | [ВСТАВЬТЕ ССЫЛКУ] | Демо интерфейса кофейни |
 | Документация | [ВСТАВЬТЕ ССЫЛКУ] | Полное руководство |
-
-## 🤝 Участие в проекте
-
-Мы приветствуем вклад в проект! Пожалуйста, следуйте нашим [правилам оформления пул-реквестов](ВСТАВЬТЕ ССЫЛКУ).
-
-## 📜 Лицензия
-
-MIT License © 2025 EasyCode Team  
-[![License](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
 
 ---
 
 <div align="center">
   <h3>🔗 Свяжитесь с нами</h3>
   <p>
-    <a href="#"><img src="https://img.icons8.com/color/48/000000/telegram-app--v1.png" alt="Telegram"/></a>
-    <a href="#"><img src="https://img.icons8.com/color/48/000000/discord--v1.png" alt="Discord"/></a>
-    <a href="#"><img src="https://img.icons8.com/color/48/000000/twitter--v1.png" alt="Twitter"/></a>
+    <a href="#"><img src="https://img.icons8.com/color/48/000000/telegram-app--v1.png" alt="Telegram"/>@rilUnreal</a>
+    <a href="#"><img src="https://img.icons8.com/color/48/000000/discord--v1.png" alt="Discord"/>rilunreal3352</a>
   </p>
 </div>
