@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SPACE-MISTRESSES | Космические исследования</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Основные цвета и шрифты */
+        :root {
+            --nasa-dark-blue: #0B3D91;
+            --nasa-red: #FC3D21;
+            --space-black: #000;
+            --neon-pink: #FF2A6D;
+            --tech-blue: #005288;
+        }
+
+        body {
+            font-family: 'Space Mono', monospace;
+            background-color: var(--space-black);
+            color: white;
+            margin: 0;
+            line-height: 1.6;
+        }
+
+        /* Шапка в стиле NASA */
+        .nasa-header {
+            background-color: var(--nasa-dark-blue);
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 3px solid var(--nasa-red);
+        }
+
+        .logo-text {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: white;
+            letter-spacing: 1px;
+        }
+
+        .logo-subtext {
+            display: block;
+            font-size: 0.9rem;
+            color: #aaa;
+        }
+
+        .nasa-menu a {
+            color: white;
+            margin-left: 1.5rem;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .nasa-menu a:hover {
+            color: var(--neon-pink);
+        }
+
+        /* Герой-баннер */
+        .hero {
+            background: url('https://images.unsplash.com/photo-1454789548928-9efd52dc4031?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+            /* background-size: cover; */
+            height: 70vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 0 2rem;
+        }
+
+        @media (max-width: 1300px) {
+            .hero {
+                background-size: cover;
+            }
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 600px;
+        }
+
+        .cta-button {
+            background-color: var(--nasa-red);
+            color: white;
+            border: none;
+            padding: 0.8rem 2rem;
+            font-size: 1rem;
+            cursor: pointer;
+            margin-top: 2rem;
+            transition: all 0.3s;
+            text-decoration: none;
+        }
+
+        .cta-button:hover {
+            background-color: var(--neon-pink);
+        }
+
+        /* Карточки миссий */
+        .missions {
+            padding: 4rem 2rem;
+            background-color: var(--space-black);
+        }
+
+        .mission-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .mission-card {
+            background-color: rgba(11, 61, 145, 0.2);
+            border: 1px solid var(--tech-blue);
+            padding: 2rem;
+            border-radius: 5px;
+            transition: transform 0.3s;
+        }
+
+        .mission-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--neon-pink);
+        }
+
+        /* Футер */
+        .nasa-footer {
+            background-color: var(--nasa-dark-blue);
+            padding: 1.5rem;
+            text-align: center;
+            font-size: 0.9rem;
+        }
+
+        .nasa-footer p {
+            margin: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Шапка в стиле NASA -->
+    <header class="nasa-header">
+        <div class="logo">
+            <span class="logo-text">SPACE-MISTRESSES</span>
+            <span class="logo-subtext">Космические исследования</span>
+        </div>
+        <nav class="nasa-menu">
+            <a href="404.html">Миссии</a>
+            <a href="https://www.nasa.gov/image-galleries/" target="_blank">Галерея</a>
+            <a href="404.html">Наука</a>
+        </nav>
+    </header>
+
+    <!-- Блок с главным баннером -->
+    <section class="hero">
+        <h1>Исследуйте Вселенную</h1>
+        <p>От чёрных дыр до колонизации Марса</p>
+        <a href="404.html" class="cta-button">Узнать больше</a>
+    </section>
+
+    <!-- Блок с миссиями -->
+    <section id="missions" class="missions">
+        <h2>Наши миссии</h2>
+        <div class="mission-grid">
+            <div class="mission-card">
+                <h3>Марс 2024</h3>
+                <p>Подготовка к первой пилотируемой миссии.</p>
+            </div>
+            <div class="mission-card">
+                <h3>Глубокий космос</h3>
+                <p>Изучение дальних галактик.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Футер -->
+    <footer class="nasa-footer">
+        <p class="copy_right text-center">Space-Mistresses &copy;
+            <script>document.write(new Date().getFullYear());</script> Все права защищены.
+            <script src="script.js"></script>
+        </p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
