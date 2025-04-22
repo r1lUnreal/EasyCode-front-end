@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dildintsov - сладости премиум качества</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome для иконок -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #ff6b6b;
+            --secondary-color: #ff8e8e;
+            --dark-color: #333;
+            --light-color: #f8f9fa;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        .navbar-brand {
+            font-weight: 700;
+            font-size: 1.8rem;
+            color: var(--primary-color) !important;
+        }
+        
+        .header-top {
+            background-color: var(--dark-color);
+            color: white;
+            padding: 5px 0;
+            font-size: 0.9rem;
+        }
+        
+        .search-bar {
+            background-color: white;
+            border-radius: 20px;
+            overflow: hidden;
+            border: 2px solid var(--primary-color);
+        }
+        
+        .search-input {
+            border: none;
+            outline: none;
+            width: 80%;
+            padding: 8px 15px;
+        }
+        
+        .search-btn {
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 8px 15px;
+        }
+        
+        .nav-link {
+            color: var(--dark-color) !important;
+            font-weight: 500;
+        }
+        
+        .nav-link:hover {
+            color: var(--primary-color) !important;
+        }
+        
+        .cart-icon {
+            position: relative;
+        }
+        
+        .cart-count {
+            position: absolute;
+            top: -5px;
+            right: -5px;
+            background-color: var(--primary-color);
+            color: white;
+            border-radius: 50%;
+            width: 18px;
+            height: 18px;
+            font-size: 0.7rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .hero-section {
+            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://images.unsplash.com/photo-1551024506-0bccd828d307?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1567&q=80');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 100px 0;
+            text-align: center;
+        }
+        
+        .product-card {
+            border: none;
+            border-radius: 10px;
+            overflow: hidden;
+            transition: transform 0.3s;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+        
+        .product-img {
+            height: 200px;
+            object-fit: cover;
+        }
+        
+        .product-title {
+            font-weight: 600;
+            margin-top: 10px;
+        }
+        
+        .product-price {
+            color: var(--primary-color);
+            font-weight: 700;
+            font-size: 1.2rem;
+        }
+        
+        .btn-primary {
+            background-color: var(--primary-color);
+            border-color: var(--primary-color);
+        }
+        
+        .btn-primary:hover {
+            background-color: var(--secondary-color);
+            border-color: var(--secondary-color);
+        }
+        
+        .footer {
+            background-color: var(--dark-color);
+            color: white;
+            padding: 40px 0;
+        }
+        
+        .footer-links a {
+            color: #ccc;
+            text-decoration: none;
+            display: block;
+            margin-bottom: 8px;
+        }
+        
+        .footer-links a:hover {
+            color: white;
+        }
+        
+        .badge-new {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background-color: var(--primary-color);
+            color: white;
+            padding: 5px 10px;
+            border-radius: 5px;
+            font-size: 0.8rem;
+        }
+        
+        .category-card {
+            background-color: white;
+            border-radius: 10px;
+            padding: 15px;
+            text-align: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s;
+        }
+        
+        .category-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+        
+        .category-icon {
+            font-size: 2rem;
+            color: var(--primary-color);
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Верхняя панель -->
+    <div class="header-top">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <span><i class="fas fa-map-marker-alt"></i> Москва</span>
+                    <span class="ms-3"><i class="fas fa-phone"></i> 8 (800) 123-45-67</span>
+                </div>
+                <div class="col-md-6 text-end">
+                    <a href="#" class="text-white text-decoration-none me-3">Доставка и оплата</a>
+                    <a href="#" class="text-white text-decoration-none">Отзывы</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Основная навигация -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">Dildintsov</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Каталог</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Новинки</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Акции</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">О нас</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Контакты</a>
+                    </li>
+                </ul>
+                <div class="d-flex align-items-center">
+                    <div class="search-bar d-flex me-3">
+                        <input type="text" class="search-input" placeholder="Найти сладости...">
+                        <button style="margin-left: 2.3%;" class="search-btn"><i class="fas fa-search"></i></button>
+                    </div>
+                    <a href="#" class="nav-link me-3"><i class="far fa-user"></i> Войти</a>
+                    <a href="#" class="nav-link cart-icon">
+                        <i class="fas fa-shopping-cart"></i>
+                        <span class="cart-count">3</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+    
+    <!-- Герой секция -->
+    <section class="hero-section">
+        <div class="container">
+            <h1 class="display-4 fw-bold">Сладкие удовольствия от Dildintsov</h1>
+            <p class="lead">Премиальные сладости ручной работы с любовью</p>
+            <a href="#" class="btn btn-primary btn-lg mt-3">Выбрать сладости</a>
+        </div>
+    </section>
+    
+    <!-- Категории -->
+    <section class="py-5">
+        <div class="container">
+            <h2 class="text-center mb-5">Категории сладостей</h2>
+            <div class="row">
+                <div class="col-md-3 mb-4">
+                    <div class="category-card">
+                        <div class="category-icon">
+                            <i class="fas fa-cookie"></i>
+                        </div>
+                        <h5>Печенье</h5>
+                    </div>
+                </div>
+                <div class="col-md-3 mb-4">
+                    <div class="category-card">
+                        <div class="category-icon">
+                            <i class="fas fa-birthday-cake"></i>
+                        </div>
+                        <h5>Торты</h5>
+                    </div>
+                </div>
+                <div class="col-md-3 mb-4">
+                    <div class="category-card">
+                        <div class="category-icon">
+                            <i class="fas fa-candy-cane"></i>
+                        </div>
+                        <h5>Конфеты</h5>
+                    </div>
+                </div>
+                <div class="col-md-3 mb-4">
+                    <div class="category-card">
+                        <div class="category-icon">
+                            <i class="fas fa-ice-cream"></i>
+                        </div>
+                        <h5>Десерты</h5>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Популярные товары -->
+    <section class="py-5 bg-light">
+        <div class="container">
+            <div class="d-flex justify-content-between align-items-center mb-5">
+                <h2>Популярные сладости</h2>
+                <a href="#" class="btn btn-outline-primary">Смотреть все</a>
+            </div>
+            <div class="row">
+                <div class="col-md-3 mb-4">
+                    <div class="product-card">
+                        <div class="position-relative">
+                            <img src="https://images.unsplash.com/photo-1586985289688-ca3cf47d3e6e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80" class="product-img w-100" alt="Печенье">
+                            <span class="badge-new">Новинка</span>
+                        </div>
+                        <div class="p-3">
+                            <h5 class="product-title">Ассорти печенья "Радость"</h5>
+                            <p class="text-muted">Набор из 10 видов печенья</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <span class="product-price">1 290 ₽</span>
+                                <button class="btn btn-sm btn-primary">В корзину</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 mb-4">
+                    <div class="product-card">
+                        <img src="https://images.unsplash.com/photo-1571115177098-24ec42ed204d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80" class="product-img w-100" alt="Торт">
+                        <div class="p-3">
+                            <h5 class="product-title">Торт "Шоколадный рай"</h5>
+                            <p class="text-muted">1 кг, 4 персоны</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <span class="product-price">2 490 ₽</span>
+                                <button class="btn btn-sm btn-primary">В корзину</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 mb-4">
+                    <div class="product-card">
+                        <div class="position-relative">
+                            <img src="https://images.unsplash.com/photo-1603532648955-039310d9ed75?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80" class="product-img w-100" alt="Конфеты">
+                            <span class="badge-new">Хит</span>
+                        </div>
+                        <div class="p-3">
+                            <h5 class="product-title">Конфеты "Фруктовый микс"</h5>
+                            <p class="text-muted">Набор из 25 конфет</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <span class="product-price">1 790 ₽</span>
+                                <button class="btn btn-sm btn-primary">В корзину</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 mb-4">
+                    <div class="product-card">
+                        <img src="https://images.unsplash.com/photo-1551024506-0bccd828d307?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1567&q=80" class="product-img w-100" alt="Десерт">
+                        <div class="p-3">
+                            <h5 class="product-title">Десерт "Клубничная мечта"</h5>
+                            <p class="text-muted">250 г</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <span class="product-price">890 ₽</span>
+                                <button class="btn btn-sm btn-primary">В корзину</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Акции -->
+    <section class="py-5">
+        <div class="container">
+            <div class="d-flex justify-content-between align-items-center mb-5">
+                <h2>Акции и спецпредложения</h2>
+                <a href="#" class="btn btn-outline-primary">Все акции</a>
+            </div>
+            <div class="row">
+                <div class="col-md-6 mb-4">
+                    <div class="card border-0 bg-primary text-white">
+                        <div class="row g-0">
+                            <div class="col-md-6">
+                                <img src="https://images.unsplash.com/photo-1627834377411-8da5f4f09de8?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=701&q=80" class="img-fluid h-100" alt="Акция">
+                            </div>
+                            <div class="col-md-6">
+                                <div class="card-body">
+                                    <h3 class="card-title">Скидка 20%</h3>
+                                    <p class="card-text">На все наборы печенья при заказе от 3000 рублей</p>
+                                    <a href="#" class="btn btn-light">Подробнее</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 mb-4">
+                    <div class="card border-0 bg-secondary text-white">
+                        <div class="row g-0">
+                            <div class="col-md-6">
+                                <img style="width: 259px;" src="https://images.unsplash.com/photo-1563805042-7684c019e1cb?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=627&q=80" class="img-fluid h-100" alt="Акция">
+                            </div>
+                            <div class="col-md-6">
+                                <div class="card-body">
+                                    <h3 class="card-title">Бесплатная доставка</h3>
+                                    <p class="card-text">При первом заказе от 2000 рублей</p>
+                                    <a href="#" class="btn btn-light">Подробнее</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- О нас -->
+    <section class="py-5 bg-light">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-md-6">
+                    <img src="https://images.unsplash.com/photo-1603532648955-039310d9ed75?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80" class="img-fluid rounded" alt="О нас">
+                </div>
+                <div class="col-md-6">
+                    <h2>О бренде Dildintsov</h2>
+                    <p class="lead">Мы создаем сладости с 2015 года, используя только натуральные ингредиенты и традиционные рецепты.</p>
+                    <p>Каждый наш продукт - это результат кропотливой работы мастеров-кондитеров, которые вкладывают душу в создание неповторимого вкуса.</p>
+                    <p>Мы тщательно отбираем поставщиков сырья и контролируем каждый этап производства, чтобы вы могли наслаждаться по-настоящему качественными сладостями.</p>
+                    <a href="#" class="btn btn-primary">Узнать больше</a>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Отзывы -->
+    <section class="py-5">
+        <div class="container">
+            <h2 class="text-center mb-5">Отзывы наших клиентов</h2>
+            <div class="row">
+                <div class="col-md-4 mb-4">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <div class="d-flex mb-3">
+                                <img src="https://randomuser.me/api/portraits/women/32.jpg" class="rounded-circle me-3" width="50" height="50" alt="Аватар">
+                                <div>
+                                    <h5 class="mb-0">Анна К.</h5>
+                                    <div class="text-warning">
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                    </div>
+                                </div>
+                            </div>
+                            <p class="card-text">Заказала торт на день рождения, все пришло вовремя, упаковка отличная, торт просто восхитительный! Все гости были в восторге.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <div class="d-flex mb-3">
+                                <img src="https://randomuser.me/api/portraits/men/75.jpg" class="rounded-circle me-3" width="50" height="50" alt="Аватар">
+                                <div>
+                                    <h5 class="mb-0">Иван П.</h5>
+                                    <div class="text-warning">
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                    </div>
+                                </div>
+                            </div>
+                            <p class="card-text">Печенье просто супер! Вкусное, хрустящее, не слишком сладкое. Заказываю уже третий раз и буду заказывать еще.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <div class="d-flex mb-3">
+                                <img src="https://randomuser.me/api/portraits/women/63.jpg" class="rounded-circle me-3" width="50" height="50" alt="Аватар">
+                                <div>
+                                    <h5 class="mb-0">Елена С.</h5>
+                                    <div class="text-warning">
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star-half-alt"></i>
+                                    </div>
+                                </div>
+                            </div>
+                            <p class="card-text">Конфеты очень вкусные, но немного дороговаты. Однако качество оправдывает цену. Упаковка красивая, можно дарить.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Футер -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-3 mb-4">
+                    <h5 class="mb-4">Dildintsov</h5>
+                    <p>Премиальные сладости ручной работы с любовью для вас.</p>
+                    <div class="social-icons">
+                        <a href="#" class="text-white me-2"><i class="fab fa-vk"></i></a>
+                        <a href="#" class="text-white me-2"><i class="fab fa-telegram"></i></a>
+                        <a href="#" class="text-white me-2"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                <div class="col-md-3 mb-4">
+                    <h5 class="mb-4">Каталог</h5>
+                    <div class="footer-links">
+                        <a href="#">Печенье</a>
+                        <a href="#">Торты</a>
+                        <a href="#">Конфеты</a>
+                        <a href="#">Десерты</a>
+                        <a href="#">Новинки</a>
+                    </div>
+                </div>
+                <div class="col-md-3 mb-4">
+                    <h5 class="mb-4">Информация</h5>
+                    <div class="footer-links">
+                        <a href="#">О компании</a>
+                        <a href="#">Доставка и оплата</a>
+                        <a href="#">Акции</a>
+                        <a href="#">Отзывы</a>
+                        <a href="#">Контакты</a>
+                    </div>
+                </div>
+                <div class="col-md-3 mb-4">
+                    <h5 class="mb-4">Контакты</h5>
+                    <p><i class="fas fa-phone me-2"></i> 8 (800) 123-45-67</p>
+                    <p><i class="fas fa-envelope me-2"></i> info@dildintsov.ru</p>
+                    <p><i class="fas fa-map-marker-alt me-2"></i> Москва, ул. Сладкая, 15</p>
+                </div>
+            </div>
+            <hr class="my-4 bg-light">
+            <div class="row">
+                <div class="col-md-6">
+                    <p class="mb-0">© 2023 Dildintsov. Все права защищены.</p>
+                </div>
+                <div class="col-md-6 text-end">
+                    <a href="#" class="text-white text-decoration-none me-3">Политика конфиденциальности</a>
+                    <a href="#" class="text-white text-decoration-none">Пользовательское соглашение</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+    
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

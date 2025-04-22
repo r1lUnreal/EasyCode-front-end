@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Миссии по исследованию космоса</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #0B0B45;
+            color: white;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background: url('space-background.jpg') no-repeat center center/cover;
+            padding: 50px 0;
+            text-align: center;
+        }
+
+        header h1 {
+            font-size: 3em;
+            margin: 0;
+        }
+
+        article {
+            padding: 20px;
+            border: 1px solid #fff;
+            margin: 20px auto;
+            max-width: 800px;
+            background: rgba(0, 0, 0, 0.5);
+        }
+
+        h2 {
+            color: #FFD700;
+        }
+
+        .mission {
+            margin-bottom: 20px;
+        }
+
+        footer {
+            text-align: center;
+            padding: 18.4px;
+            background: #1A1A1A;
+            margin-top: 8.3%;
+        }
+
+        .nasa-header {
+            background-color: var(--nasa-dark-blue);
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 3px solid var(--nasa-red);
+        }
+
+        .logo-text {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: white;
+            letter-spacing: 1px;
+        }
+
+        .logo-subtext {
+            display: block;
+            font-size: 0.9rem;
+            color: #aaa;
+        }
+
+        .nasa-menu a {
+            color: white;
+            margin-left: 1.5rem;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .nasa-menu a:hover {
+            color: rgb(255, 42, 109);
+        }
+
+        main {
+            margin-top: 5%;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header class="nasa-header">
+        <div class="logo">
+            <span class="logo-text">SPACE-MISTRESSES</span>
+            <span class="logo-subtext">Космические исследования</span>
+        </div>
+        <nav class="nasa-menu">
+            <a href="index.html">Главная</a>
+            <a href="https://www.nasa.gov/image-galleries/" target="_blank">Галерея</a>
+            <a href="nauka.html">Наука</a>
+        </nav>
+    </header>
+
+    <main>
+        <article>
+            <div class="mission">
+                <h2>Миссия "Аполлон 11"</h2>
+                <p>Дата: 20 июля 1969 года</p>
+                <p>Первое высаживание человека на Луну. Нил Армстронг стал первым человеком, ступившим на поверхность
+                    Луны, заявив при этом: "Это маленький шаг для человека, но гигантский скачок для человечества".</p>
+            </div>
+
+            <div class="mission">
+                <h2>Миссия "Марс-2025"</h2>
+                <p>Дата: 30 июля 2025 года</p>
+                <p>Цель - исследовать возможность существования жизни на Марсе. Особый акцент на изучение геологии и
+                    климата планеты. Ровер Perseverance собирает образцы для будущих миссий.</p>
+            </div>
+
+            <div class="mission">
+                <h2>Миссия "Вояджер 1"</h2>
+                <p>Дата запуска: 5 сентября 2027 года</p>
+                <p>Первый космический аппарат, покинувший пределы Солнечной системы, отправляется в межзвёздное
+                    пространство с целью изучения внешних планет и их спутников.</p>
+            </div>
+        </article>
+    </main>
+
+    <footer>
+        <p class="copy_right text-center">Space-Mistresses &copy;
+            <script>document.write(new Date().getFullYear());</script> Все права защищены.
+            <script src="script.js"></script>
+        </p>
+    </footer>
+
+</body>
+
+</html>

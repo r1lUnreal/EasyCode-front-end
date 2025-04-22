@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Наука по исследованию космоса</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #001f3f;
+            color: #ffffff;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-image: url('space-background.jpg');
+            background-size: cover;
+            padding: 50px 0;
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 3.5em;
+            margin: 0;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+        }
+
+        section {
+            padding: 20px;
+            border: 1px solid #ffffff;
+            margin: 20px auto;
+            max-width: 800px;
+            background: rgba(0, 0, 0, 0.7);
+        }
+
+        h2 {
+            color: #FFD700;
+        }
+
+        footer {
+            text-align: center;
+            padding: 18.4px;
+            background: #1A1A1A;
+            margin-top: 8.3%;
+        }
+
+        .nasa-header {
+            background-color: var(--nasa-dark-blue);
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 3px solid var(--nasa-red);
+        }
+
+        .logo-text {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: white;
+            letter-spacing: 1px;
+        }
+
+        .logo-subtext {
+            display: block;
+            font-size: 0.9rem;
+            color: #aaa;
+        }
+
+        .nasa-menu a {
+            color: white;
+            margin-left: 1.5rem;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .nasa-menu a:hover {
+            color: rgb(255, 42, 109);
+        }
+
+        .dmd {
+            text-align: center;
+            margin-top: 5.2%;
+        }
+
+        .osnov {
+            margin-top: 5%;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header class="nasa-header">
+        <div class="logo">
+            <span class="logo-text">SPACE-MISTRESSES</span>
+            <span class="logo-subtext">Космические исследования</span>
+        </div>
+        <nav class="nasa-menu">
+            <a href="index.html">Главная</a>
+            <a href="https://www.nasa.gov/image-galleries/" target="_blank">Галерея</a>
+            <a href="nission.html">Миссии</a>
+        </nav>
+    </header>
+
+    <div class="dmd">
+        <h1>Научные исследования космоса</h1>
+    </div>
+
+    <main class="osnov">
+        <section>
+            <h2>Введение в астрономию</h2>
+            <p>Астрономия — это наука, изучающая небесные тела, космические явления и законы, управляющие вселенной.
+                Астрономы используют различные методы и технологии для изучения объектов, находящихся как в нашем
+                Солнечном системе, так и в далеких галактиках.</p>
+        </section>
+
+        <section>
+            <h2>Важные научные открытия</h2>
+            <ul>
+                <li><strong>Гелиоцентрическая система:</strong> модель, предложенная Коперником, которая утверждает, что
+                    Земля и другие планеты вращаются вокруг Солнца.</li>
+                <li><strong>Теория относительности:</strong> Альберт Эйнштейн предложил новую парадигму для понимания
+                    пространства и времени.</li>
+                <li><strong>Космическое микроволновое фоновое излучение:</strong> открытие, подтвердившее теорию
+                    Большого взрыва.</li>
+                <li><strong>Экзопланеты:</strong> открытие планет за пределами нашей солнечной системы изменило наше
+                    представление о возможной жизни в других мирах.</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>Последние новости в астрономии</h2>
+            <p>В последнее время ученые смогли обнаружить новые экзопланеты, которые потенциально могут содержать жизнь.
+                Кроме того, исследования черных дыр и их влияние на окружающее пространство остается актуальной темой
+                среди астрономов.</p>
+        </section>
+    </main>
+
+    <footer class="nasa-footer">
+        <p class="copy_right text-center">Space-Mistresses &copy;
+            <script>document.write(new Date().getFullYear());</script> Все права защищены.
+            <script src="script.js"></script>
+        </p>
+    </footer>
+</body>
+
+</html>

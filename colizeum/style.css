@@ -1,0 +1,62 @@
+body {
+    background-color: black;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+}
+
+.header-left {
+    display: flex;
+    align-items: center;
+}
+
+.header-left select {
+    background-color: transparent;
+    color: white;
+    border: 0.1px solid white;
+    border-radius: 0px 0px 40% 0px;
+    margin-left: 100px;
+}
+
+.header-right a {
+    text-decoration: none;
+    color: white;
+    font-size: 1.3rem;
+    margin-left: 1.5rem;
+}
+
+#accent {
+    background-color: yellow;
+    color: black;
+    border-radius: 0px 0px 40% 0px;
+    padding: 10px;
+}
+
+.title {
+    text-align: center;
+    
+}
+
+.title h1{
+    font-size: 2rem;
+    color: yellow;
+}
+
+.title p {
+    color: white;
+}
+
+.video-banner {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    width: 100%;
+}
+
+.video-banner video {
+    width: 100%;
+}

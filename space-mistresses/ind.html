@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Узнать подробнее</title>
+</head>
+<style>
+    * {
+        padding: 0;
+        margin: 0;
+    }
+
+    footer {
+        text-align: center;
+        padding: 18.4px;
+        background: #1A1A1A;
+        margin-top: 8%;
+    }
+
+    .nasa-header {
+        background-color: var(--nasa-dark-blue);
+        padding: 1rem 2rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        border-bottom: 3px solid var(--nasa-red);
+    }
+
+    .logo-text {
+        font-size: 1.8rem;
+        font-weight: bold;
+        color: white;
+        letter-spacing: 1px;
+    }
+
+    .logo-subtext {
+        display: block;
+        font-size: 0.9rem;
+        color: #aaa;
+    }
+
+    .nasa-menu a {
+        color: white;
+        margin-left: 1.5rem;
+        text-decoration: none;
+        font-weight: bold;
+    }
+
+    .nasa-menu a:hover {
+        color: rgb(255, 42, 109);
+    }
+
+    body {
+        background-color: rgb(11, 11, 69);
+    }
+
+    .nasa-footer p {
+        color: rgb(241, 202, 193);
+    }
+</style>
+
+<body>
+
+    <header class="nasa-header">
+        <div class="logo">
+            <span class="logo-text">SPACE-MISTRESSES</span>
+            <span class="logo-subtext">Космические исследования</span>
+        </div>
+        <nav class="nasa-menu">
+            <a href="index.html">Главная</a>
+            <a href="https://www.nasa.gov/image-galleries/" target="_blank">Галерея</a>
+            <a href="nission.html">Миссии</a>
+        </nav>
+    </header>
+
+    <div class="gla" style="padding: 50px; padding-bottom:50px;">
+        <div class="gallery"
+            style="background-color: blueviolet; margin-bottom: 20px; border-radius: 17px; border: solid rgb(11, 61, 145) 2px; padding: 1.7%;">
+            <h1><b>Галереи изображений</b></h1>
+            <p>Посетите галлерею SPACE-MISTRESSES чтобы просмотреть и загрузить изображения Солнечной системы, миссий
+                агентства и многого другого в высоком разрешении.</p>
+        </div>
+
+        <div class="mision"
+            style="background-color: aqua; margin-bottom: 20px; border-radius: 17px; border: solid rgb(11, 61, 145) 2px; padding: 1.7%;">
+            <h1>Миссии по исследованию космоса</h1>
+            <article>
+                <div class="mission">
+                    <h3>Миссия "Аполлон 11"</h3>
+                    <p>Первое высаживание человека на Луну. </p>
+                </div>
+
+                <div class="mission">
+                    <h3>Миссия "Марс-2025"</h3>
+                    <p>Цель - исследовать возможность существования жизни на Марсе.</p>
+                </div>
+
+                <div class="mission">
+                    <h3>Миссия "Вояджер 1"</h3>
+                    <p>Первый космический аппарат, покинувший пределы Солнечной системы, отправляется в межзвёздное
+                        пространство.</p>
+                </div>
+            </article>
+
+        </div>
+
+        <div class="nauke" style="background-color: cornflowerblue; border-radius: 17px; border: solid rgb(11, 61, 145) 2px; padding: 1.7%;">
+            <h1> Наука </h1>
+            <p>Научные исследования космоса охватывают различные области, включая науку о Земле, материаловедение,
+                биологию, медицину и физику.
+
+                Благодаря пилотируемым кораблям и космическим телескопам мы всё больше узнаем, как устроена Вселенная.
+                Мы продвигаются всё дальше в изучении космоса, используя новейшие технологии и инструменты. Каждое
+                открытие помогает понять происхождение и устройство нашей Вселенной. </p>
+        </div>
+    </div>
+
+    <footer class="nasa-footer">
+        <p class="copy_right text-center">Space-Mistresses &copy;
+            <script>document.write(new Date().getFullYear());</script> Все права защищены.
+            <script src="script.js"></script>
+        </p>
+    </footer>
+
+</body>
+
+</html>
