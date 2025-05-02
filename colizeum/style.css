@@ -2,6 +2,7 @@ body {
     background-color: black;
 }
 
+/*? header */
 header {
     display: flex;
     justify-content: space-between;
@@ -17,8 +18,23 @@ header {
     background-color: transparent;
     color: white;
     border: 0.1px solid white;
-    border-radius: 0px 0px 40% 0px;
     margin-left: 100px;
+    padding: 8px;
+    clip-path: polygon(0 0,
+            /* Левый верхний */
+            100% 0,
+            /* Правый верхний */
+            100% 59%,
+            /* Правый снизу (обрезаем 20%) */
+            80% 100%,
+            /* Правый снизу (обрезаем по диагонали) */
+            0 100%
+            /* Левый нижний */
+        );
+}
+
+.header-left option {
+    background-color: black;
 }
 
 .header-right a {
@@ -31,24 +47,71 @@ header {
 #accent {
     background-color: yellow;
     color: black;
-    border-radius: 0px 0px 40% 0px;
     padding: 10px;
+    clip-path: polygon(0 0,
+            /* Левый верхний */
+            100% 0,
+            /* Правый верхний */
+            100% 59%,
+            /* Правый снизу (обрезаем 20%) */
+            80% 100%,
+            /* Правый снизу (обрезаем по диагонали) */
+            0 100%
+            /* Левый нижний */
+        );
 }
 
+/*? title */
 .title {
-    text-align: center;
-    
+    margin-left: 42%;
+    margin-top: 10%;
 }
 
-.title h1{
-    font-size: 2rem;
+.title h1 {
+    font-size: 5rem;
     color: yellow;
+    margin-left: -23%;
 }
 
 .title p {
     color: white;
+    font-size: 1.6rem;
+    margin-left: 12%;
 }
 
+.title button {
+    margin-top: 6.3%;
+    margin-left: 1%;
+    color: yellow;
+    border: none;
+    font-size: 1.3rem;
+}
+
+/*? button */
+.watch_btn {
+    margin-top: 4.3%;
+    margin-left: 20%;
+    display: flex;
+}
+
+#play_btn {
+    color: yellow;
+    width: 60px;
+    height: 60px;
+    border: 0.1px solid yellow;
+    border-radius: 50%;
+}
+
+.watch {
+    background: transparent;
+}
+
+.img {
+    background-image: url('https://st15.stpulscen.ru/images/product/222/669/633_medium2.jpg');
+    margin-top: 9%;
+}
+
+/*? banner */
 .video-banner {
     position: fixed;
     top: 0;

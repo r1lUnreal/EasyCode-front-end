@@ -1,0 +1,12 @@
+body {
+    background-color: rgb(85, 77, 77);
+    text-align: center;
+    margin-top: 10%;
+}
+
+.calculator {
+    display: grid;
+    grid-template-columns: 41px 41px 41px 41px;
+    grid-template-rows: 27px 27px 27px 27px 27px 27px;
+    margin-left: 37.5%;
+}
