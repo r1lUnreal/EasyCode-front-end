@@ -1,6 +1,8 @@
+console.log(' ')
 console.log('------------------------------------');
 console.log('Задание 1');
 console.log('------------------------------------');
+console.log(' ')
 
 let film = 'Сваты';
 let year = '28 декабря 2008 года';
@@ -14,10 +16,11 @@ console.log('Год выпуска: ' + year);
 console.log('Владелец: ' + director);
 console.log('Режиссёр: ' + author);
 
-
+console.log(' ')
 console.log('------------------------------------');
 console.log('Задание 3');
 console.log('------------------------------------');
+console.log(' ')
 
 const PI = 3.14159;
 let radius = 10;
@@ -26,9 +29,11 @@ let result = PI * squared;
 
 let area = console.log("Площадь круга с радиусом " + radius + " " + "равна " + result);
 
+console.log(' ')
 console.log('------------------------------------');
 console.log('Задание 2');
 console.log('------------------------------------');
+console.log(' ')
 
 const readline = require('readline').createInterface({
     input: process.stdin,
