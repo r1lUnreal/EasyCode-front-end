@@ -33,7 +33,7 @@ console.log(' ')
 console.log('------------------------------------');
 console.log('Задание 2');
 console.log('------------------------------------');
-console.log(' ')
+console.log(' ');
 
 const readline = require('readline').createInterface({
     input: process.stdin,

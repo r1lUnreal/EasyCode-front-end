@@ -1,0 +1,42 @@
+{
+    "editor.bracketPairColorization.enabled": true,
+    "files.autoSave": "afterDelay",
+    //? Font
+    "editor.fontSize": 24,
+    "editor.fontFamily": "JetBrains Mono",
+    //? Cursor
+    "editor.cursorBlinking": "expand",
+    "editor.cursorSmoothCaretAnimation": "on",
+    "editor.fontLigatures": true,
+    //? plagin indentRainbow (sittings color)
+    "indentRainbow.colors": [
+    "rgba(255,255,64,0.3)",
+    "rgba(127,255,127,0.3)",
+    "rgba(255,127,255,0.3)",
+    "rgba(79,236,236,0.3)"],
+    "editor.quickSuggestions": {
+        "comments": "on",
+        "strings": "on"
+    },
+    //? Icon - Indecator
+    "workbench.productIconTheme": "bongocat",
+    "indentRainbow.indicatorStyle": "light",  // light
+    "cSpell.language": "en,ru",
+    //? terminal
+    "terminal.integrated.defaultProfile.osx": "zsh",
+    "terminal.external.osxExec": "iTerm.app",
+    "terminal.integrated.fontFamily": "JetBrains Mono",
+    "terminal.integrated.cursorStyle": "line",
+    "terminal.integrated.cursorBlinking": false,
+    "terminal.integrated.cursorStyleInactive": "block",
+    "terminal.integrated.fontSize": 20,
+    "python.createEnvironment.trigger": "off",
+    "liveServer.settings.donotShowInfoMsg": true,
+    "workbench.panel.showLabels": false,
+    "terminal.integrated.defaultProfile.windows": "Git Bash",
+    "terminal.integrated.tabs.defaultIcon": "heart",
+    "terminal.integrated.tabs.defaultColor": "terminal.ansiRed",
+    "git.enableSmartCommit": true,
+    "git.confirmSync": false,
+    "workbench.colorTheme": "Sunset Theme",
+}
