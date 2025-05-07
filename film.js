@@ -11,7 +11,7 @@ let director = 'Студия квартал 95';
 let seasons = 7;
 
 console.log('Фильм: ' + film);
-console.log('Количество сезонов: ' + seasons);
+console.log('Количество сезонов: ' + seasons); 
 console.log('Год выпуска: ' + year);
 console.log('Владелец: ' + director);
 console.log('Режиссёр: ' + author);

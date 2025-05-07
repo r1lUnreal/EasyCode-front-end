@@ -1,0 +1,87 @@
+{
+    //? Шрифты
+    "editor.fontFamily": "JetBrains Mono",
+    "editor.fontSize": 24,
+    //? Иконки
+    "workbench.iconTheme": "material-icon-theme",
+    "material-icon-theme.hidesExplorerArrows": true,
+    "workbench.tree.indent": 14,
+    //? Тема
+    "workbench.colorTheme": "One Dark Pro Night Flat",
+    //? Отсчет строки относительно курсора
+    "editor.lineNumbers": "relative",
+    //? Запрос на поддверждение
+    "explorer.confirmDragAndDrop": false,
+    //? sideBar
+    "workbench.sideBar.location": "right",
+    //? статус бар
+    "workbench.statusBar.visible": false,
+    //? скрол
+    "editor.scrollbar.horizontal": "hidden",
+    "editor.scrollbar.vertical": "hidden",
+    "editor.minimap.enabled": false,
+    "editor.matchBrackets": "never",
+    "editor.occurrencesHighlight": "off",
+    "editor.overviewRulerBorder": false,
+    "editor.hideCursorInOverviewRuler": true,
+    "editor.stickyScroll.enabled": false,
+    //? Полный путь к фалу
+    "breadcrumbs.enabled": false,
+    //? Длина tab
+    "editor.tabSize": 4,
+    //? Плагин TODO
+    "todohighlight.isEnable": true,
+    //? Настройка курсора
+    "editor.multiCursorModifier": "ctrlCmd",
+    "editor.cursorBlinking": "expand",
+    "editor.cursorSmoothCaretAnimation": "on",
+    "editor.fontLigatures": true,
+    //? Ненужные подсказки
+    "workbench.tips.enabled": false,
+    //? Делать одну пустую строку в конце файла
+    "files.insertFinalNewline": true,
+    //? Убрать лампочку
+    "editor.lightbulb.enabled": "off",
+    //? Не показывает пробелы, табы
+    "editor.renderWhitespace": "none",
+    //? Отключает подсветку активной строки
+    "editor.renderLineHighlight": "none",
+    //? auto save mode
+    "files.autoSave": "afterDelay",
+    //? Терминал
+    "terminal.integrated.defaultProfile.osx": "zsh",
+    "terminal.external.osxExec": "iTerm.app",
+    "terminal.integrated.fontFamily": "JetBrains Mono",
+    "terminal.integrated.cursorStyle": "line",
+    "terminal.integrated.cursorBlinking": false,
+    "terminal.integrated.cursorStyleInactive": "block",
+    "terminal.integrated.fontSize": 20,
+    "python.createEnvironment.trigger": "off",
+    "liveServer.settings.donotShowInfoMsg": true,
+    "workbench.panel.showLabels": false,
+    "terminal.integrated.defaultProfile.windows": "Git Bash",
+    "terminal.integrated.tabs.defaultIcon": "heart",
+    "terminal.integrated.tabs.defaultColor": "terminal.ansiRed",
+    "git.enableSmartCommit": true,
+    "git.confirmSync": false,
+    //? Убрать панель слева с git, run, debug, plugins
+    "workbench.activityBar.location": "hidden",
+    //TODO Отключаем лишние декорации и метки
+    "explorer.decorations.badges": false,
+    "git.decorations.enabled": false,
+    "scm.diffDecorations": "none",
+    //? plagin indentRainbow (sittings color)
+    "indentRainbow.indicatorStyle": "light",
+    "indentRainbow.colors": [
+        "rgba(255,255,64,0.3)",
+        "rgba(127,255,127,0.3)",
+        "rgba(255,127,255,0.3)",
+        "rgba(79,236,236,0.3)"
+    ],
+    "editor.quickSuggestions": {
+        "comments": "on",
+        "strings": "on"
+    },
+    "git.autofetch": true,
+    "workbench.startupEditor": "none",
+}
