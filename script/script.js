@@ -21,7 +21,7 @@ console.log(' ');
 
 let club = prompt('Вы являетесь членом нашего клуба?');
 
-if (club == 'да') {
+if (club == 'да' || club == 'yes' || club == 'Да' || club == 'Yes') {
     let sale = parseInt(prompt('На сколько рублей ваша покупка?'));
 
     if (sale >= 1000) {
@@ -31,7 +31,7 @@ if (club == 'да') {
         alert('Для получения скидки сумма ваше покупки должна быть от 1000 рублей');
     }
 }
-else if (club == 'нет') {
+else if (club == 'нет' || club == 'no' || club == 'No' || club == 'Нет') {
     let sale1 = parseInt(prompt('На сколько рублей ваша покупка?'));
 
     if (sale1 >= 5000) {
