@@ -52,15 +52,27 @@ console.log('-----------------');
 console.log(' ');
 
 const vop = confirm("Хотите купить животное?");
+const cat_availability = false;
+const dog_availability = true;
 
 if (vop) {
     const pet = prompt('Кошку или собаку?')
 
     if (pet == 'кошка' || pet == 'Кошка' || pet == 'cat' || pet == 'Cat' || pet == 'кошку' || pet == 'Кошку') {
-        alert('У нас есть: муся, бося, барсик')
+        if (cat_availability == true) {
+            alert('У нас есть: муся, бося, барсик')
+        }
+        else {
+            alert('Котики усё')
+        }
     }
     else if (pet == 'собака' || pet == 'Собака' || pet == 'dog' || pet == 'Dog' || pet == 'собаку' || pet == 'Собаку') {
-        alert('У нас есть: шарик, бобик')
+        if (dog_availability == true) {
+            alert('У нас есть: шарик, бобик')
+        }
+        else {
+            alert('Собачки усё')
+        }
     }
     else {
         alert('У нас такого животного нету =(')
