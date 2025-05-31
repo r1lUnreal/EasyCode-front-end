@@ -33,7 +33,7 @@ function bonus(age) {
         if (i == 1) {
             year = "год";
         } 
-        else if (i >= 2 && i <= 4) {
+        else if (i >= 2 || i <= 4) {
             year = "года";
         } 
         else {

@@ -1,3 +1,5 @@
+//! Первый урок по циклам
+
 // for (let i = 0; i < 10; i++) {
 //     // i = 0, True
 //     // i ++ = 1, True
@@ -59,11 +61,37 @@
 
 // paralelopipet()
 
-let i = 0;
-for (let i = 0; i < 10; i++) {
-    if (i == 5) {
-        console.log('exit');
-        break;
+// let i = 0;
+// for (let i = 0; i < 10; i++) {
+//     if (i == 5) {
+//         console.log('exit');
+//         break;
+//     }
+// }
+// console.log(i)
+
+//! Второй урок по циклам
+
+// let user_money = parseInt(prompt('Введите сумму вклада:'));
+// let rate = parseInt(prompt('Введите процентную ставку:'));
+// let year = parseInt(procent('Введите срок вклада в годах:'));
+
+// while (year > 0) {
+//     year--;
+//     money += money/100 * rate
+// }
+
+// console.log('Сумма на конец периода равна: ', money);
+
+let balance = 1000;
+
+while (balance > 0) {
+    let money = parseInt(prompt('Сколько снять!?'));
+    if (balance >= money) {
+        alert('Good');
+        balance -= money;
+    }
+    else {
+        alert('Net deneg =(');
     }
 }
-console.log(i)

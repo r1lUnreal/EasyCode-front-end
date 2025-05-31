@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Speedtest</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+
+        button {
+            padding: 10px 15px;
+            font-size: 16px;
+        }
+
+        #results {
+            margin-top: 20px;
+            white-space: pre-line;
+        }
+    </style>
+</head>
+
+<body>
+    <button onclick="runSpeedTest()">Запустить тест скорости</button>
+    <div id="results"></div>
+
+    <script>
+        async function runSpeedTest() {
+            const resultsDiv = document.getElementById('results');
+            resultsDiv.innerHTML = "🔄 Измерение скорости... (может занять время)";
+
+            // Тестовые файлы с GitHub (большие бинарные файлы)
+            const testFiles = [
+                "https://raw.githubusercontent.com/pacexy/speedtest/master/10mb.bin",
+                "https://raw.githubusercontent.com/pacexy/speedtest/master/20mb.bin",
+                "https://raw.githubusercontent.com/pacexy/speedtest/master/50mb.bin"
+            ];
+
+            // Тест загрузки (3 замера)
+            let downloadSpeeds = [];
+            for (let i = 0; i < 3; i++) {
+                const fileUrl = testFiles[i % testFiles.length] + "?rand=" + Math.random();
+                try {
+                    const speed = await measureDownloadSpeed(fileUrl);
+                    downloadSpeeds.push(speed);
+                    resultsDiv.innerHTML += `\nЗагрузка ${i + 1}: ${speed.toFixed(2)} Мбит/с`;
+                } catch (error) {
+                    resultsDiv.innerHTML += `\nОшибка при замере загрузки: ${error.message}`;
+                }
+                await new Promise(resolve => setTimeout(resolve, 1000));
+            }
+
+            // Тест отдачи (примерный)
+            const uploadSpeed = await measureUploadSpeed();
+            resultsDiv.innerHTML += `\nОтдача: ${uploadSpeed.toFixed(2)} Мбит/с`;
+
+            // Результаты
+            const maxDownload = Math.max(...downloadSpeeds);
+            const minDownload = Math.min(...downloadSpeeds);
+            const avgDownload = downloadSpeeds.reduce((a, b) => a + b, 0) / downloadSpeeds.length;
+
+            resultsDiv.innerHTML += `
+                \n\n📊 Результаты:
+                \nМакс. скорость загрузки: ${maxDownload.toFixed(2)} Мбит/с
+                \nМин. скорость загрузки: ${minDownload.toFixed(2)} Мбит/с
+                \nСредняя скорость загрузки: ${avgDownload.toFixed(2)} Мбит/с
+                \nСкорость отдачи: ${uploadSpeed.toFixed(2)} Мбит/с
+            `;
+        }
+
+        // Замер скорости загрузки
+        async function measureDownloadSpeed(url) {
+            const startTime = performance.now();
+            const response = await fetch(url, { cache: "no-store" });
+            if (!response.ok) throw new Error("Не удалось загрузить файл");
+            const blob = await response.blob();
+            const endTime = performance.now();
+
+            // Размер в битах / время в секундах → Мбит/с
+            const fileSizeBits = blob.size * 8;
+            const durationSeconds = (endTime - startTime) / 1000;
+            return fileSizeBits / durationSeconds / 1_000_000;
+        }
+
+        // Замер скорости отдачи (примерный, через WebSocket)
+        async function measureUploadSpeed() {
+            return new Promise((resolve) => {
+                const socket = new WebSocket("wss://echo.websocket.org");
+                const testData = new Uint8Array(1 * 1024 * 1024); // 1 MB
+                let startTime;
+
+                socket.onopen = () => {
+                    startTime = performance.now();
+                    socket.send(testData);
+                };
+
+                socket.onmessage = () => {
+                    const endTime = performance.now();
+                    socket.close();
+                    const durationSeconds = (endTime - startTime) / 1000;
+                    const speed = (1 * 8) / durationSeconds; // Мбит/с
+                    resolve(speed);
+                };
+
+                socket.onerror = () => resolve(0);
+            });
+        }
+    </script>
+</body>
+
+</html>
