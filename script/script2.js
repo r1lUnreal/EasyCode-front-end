@@ -40,11 +40,11 @@
 
 // alert(`Состояние роботов: готовы к работе: ${ready_robot}, требуется ремонт: ${needsRepair_robot}, списаны с работы: ${decommissioned_robot}`);
 
-let ready_robot = 0; // готовы
-let needsRepair_robot = 0; // требуется ремонт
-let decommissioned_robot = 0; // списаны
-
 function inventoryRobots() {
+    let ready_robot = 0; // готовы
+    let needsRepair_robot = 0; // требуется ремонт
+    let decommissioned_robot = 0; // списаны
+    
     while (true) {
         let robot = prompt('Какое состояние у робота?');
 
@@ -75,7 +75,7 @@ function inventoryRobots() {
                 decommissioned_robot++;
             }
             else {
-                
+
             }
         }
     }
