@@ -1,97 +1,45 @@
-//! Первый урок по циклам
+// let names = []; // пустой
+let names = ['Иван', 'Максим', 'Егор', 'Никита', 'Степан', 'Саша'];
 
-// for (let i = 0; i < 10; i++) {
-//     // i = 0, True
-//     // i ++ = 1, True
-//     // i ++ = 2, True
-//     // i ++ = ..., True
-//     // i ++ = 9, True
-//     console.log('итерация №', i)
-// }
+// ___ДОБАВЛЕНИЕ
+names.push('Вова')
+names.push('Катя')
+console.log(names)
 
-
-// for (let c = 10; c <= 100; c += 2) {
-//     console.log('четное число', c)
-// }
+// ___УДАЛЕНИЕ
+names.pop()
+console.log(names)
 
 
-// for (let k = 100; k > 0; k -= 10) {
-//     console.log(k)
+// __ИНДЕКСЫ
+console.log(names[0])
+console.log(names[2])
 
-//     // 100, 90, ... 10!, || 0 > 0 = false
-// }
+names[-1] = 'Александр'
+console.log(names)
 
-// for (let i = 1; i <= 10; i++) {
-//     console.log('привет')
-// }
+// __ПРОВЕРИТЬ НАЛИЧИЕ ЭЛЕМЕНТА
+let a1 = names.includes('Никита') // возвращает true, если элемент есть или false, если элемента нету
+console.log(a1)
 
-// for (let i = 3; i < 20; i += 2) {
-//     console.log('#', i)
-// }
-
-// for (let i = 2; i <= 9; i ++) {
-//     for (let k = 2; k <= 9; k ++) {
-//         console.log(`${i} * ${k} = ${i * k}`)
-//     }
-// }
-
-// function draw(col, row) {
-//     for (let r = 0; r < row; r++) {
-//         line = '';
-//         for (let c = 0; c < col; c++) {
-//             line += '*';
-//         }
-//         console.log(line)
-//     }
-// }
-
-// draw(1, 10);
-
-
-// function paralelopipet(col, row) {
-//     for (let s = 0; s < 5; s++) {
-//         line = ''
-//         for (let d = 0; d < 5; d++) {
-//             line += '#'
-//             console.log(line)
-//         }
-//         break;
-//     }
-// }
-
-// paralelopipet()
-
-// let i = 0;
-// for (let i = 0; i < 10; i++) {
-//     if (i == 5) {
-//         console.log('exit');
-//         break;
-//     }
-// }
-// console.log(i)
-
-//! Второй урок по циклам
-
-// let user_money = parseInt(prompt('Введите сумму вклада:'));
-// let rate = parseInt(prompt('Введите процентную ставку:'));
-// let year = parseInt(procent('Введите срок вклада в годах:'));
-
-// while (year > 0) {
-//     year--;
-//     money += money/100 * rate
-// }
-
-// console.log('Сумма на конец периода равна: ', money);
-
-let balance = 1000;
-
-while (balance > 0) {
-    let money = parseInt(prompt('Сколько снять!?'));
-    if (balance >= money) {
-        alert('Good');
-        balance -= money;
-    }
-    else {
-        alert('Net deneg =(');
-    }
+let a = names.indexOf('Ни44кита')
+if (a != -1) {
+    console.log('есть такой')
+} else {
+    console.log('нет')
 }
+
+names = ['Иван', 'Максим', 'Егор', 'Никита', 'Степан', 'Саша'];
+// удаление по индексу
+names.splice(4, 1)
+names.splice(0, 2)
+
+// добавить по индексу
+names.splice(3, 0, 'Костя') // индекс, сколько удалить, кого добавить
+// на 3 индекс ставим костю, никого не удаляю
+console.log(names)
+
+
+names = ['Иван', 'Максим', 'Егор', 'Никита', 'Степан', 'Саша'];
+names.splice(2, 3, 'Костя', 'Эльза')
+console.log(names)

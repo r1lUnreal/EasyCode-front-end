@@ -1,47 +1,53 @@
-console.log(' ');
-console.log('---------------------------------------');
-console.log('================ work 1 ===============');
-console.log('---------------------------------------');
-console.log(' ');
+const readline = require('readline');
+const rl = readline.createInterface({
+    input: process.stdin,
+    output: process.stdout
+});
 
-function work(age) {
-    for (let i = 1; i <= age; i++) {
-        console.log(`Сотрудник работал ${i} лет`);
-        if (i <= 5000) {
-            console.log(`Бону сотрудника за роботу: ${i}000$`);
+let films = ['Сваты', 'Пёс', 'Смешарики'];
+
+function showMenu() {
+    console.log('==============================')
+    console.log('======Выбирите действие=======')
+    console.log('======1. Добавить фильм=======')
+    console.log('======2. Удалить фильм========')
+    console.log('====3. Весь список фильмов====')
+    console.log('====4. Выйти из программы=====')
+    console.log('==============================')
+
+    rl.question('> Ваш выбор: ', (choice) => {
+        if (choice === '1') {
+            rl.question('Какой фильм хотите добавить? ', (newFilm) => {
+                films.push(newFilm);
+                console.log(`Добавлен: "${newFilm}"`);
+                showMenu();
+            });
         }
-    }
-}
-
-work(7);
-
-console.log(' ');
-console.log('---------------------------------------');
-console.log('================ work 2 ===============');
-console.log('---------------------------------------');
-console.log(' ');
-
-function bonus(age) {
-    for (let i = 1; i <= age; i++) {
-        let bal = 1000;
-
-        if (i > 3) {
-            bal += 500 * (i - 3);
+        else if (choice === '2') {
+            rl.question('Какой фильм хотите удалить? ', (filmToRemove) => {
+                const index = films.findIndex(f => f.toLowerCase() === filmToRemove.toLowerCase());
+                if (index !== -1) {
+                    console.log(`Удалён: "${films.splice(index, 1)}"`);
+                } else {
+                    console.log('❌ Фильм не найден!');
+                }
+                showMenu();
+            });
         }
-
-        let year;
-        if (i == 1) {
-            year = "год";
-        } 
-        else if (i >= 2 || i <= 4) {
-            year = "года";
-        } 
+        else if (choice === '3') {
+            console.log('\nВаши фильмы:');
+            films.forEach((film, i) => console.log(`${i + 1}. ${film}`));
+            showMenu();
+        }
+        else if (choice === '4') {
+            console.log('Программа завершена!');
+            rl.close();
+        }
         else {
-            year = "лет";
+            console.log('⚠️ Неверная команда!');
+            showMenu();
         }
-
-        console.log(`Сотрудник работал ${i} ${year}. Его бонус ${bal}`)
-    }
+    });
 }
 
-bonus(5);
+showMenu();

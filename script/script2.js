@@ -1,85 +1,44 @@
-// let ready_robot = 0;
+let films = ['Сваты', 'Пёс', 'Смешарики'];
 
-// while (true) {
-//     let robot = prompt('Робот готов к работе? (да / нет. стоп - выйти из программы)');
+function menushka() {
+    const menu = prompt('Выбирите дейтсвие: 1. Добавить фильм 2. Удалить фильм 3. Посмотреть весь список фильмов 4. выйти из программы');
 
-//     if (robot == 'стоп') {
-//         break;
-//     }
-//     else if (robot == 'да') {
-//         ready_robot++;
-//     }
-//     else if (robot == 'нет') {
-//         alert('Робот готов к работе? (да / нет. стоп - выйти из программы)');
-//     }
-// }
+    if (menu == '1') {
+        let pam = prompt('Введите название фильма для его добавления');
+        if (pam) films.push(pam);
+        menushka();
+    }
+    else if (menu === '2') {
+        let filmToRemove = prompt('Какой фильм хотите удалить?');
+        if (filmToRemove) {
+            const index = films.findIndex(film =>
+                film.toLowerCase() === filmToRemove.toLowerCase()
+            );
 
-// alert(`Колличество готовый роботов: ${ready_robot}`);
-
-
-// let ready_robot = 0; // готовы
-// let needsRepair_robot = 0; // требуется ремонт
-// let decommissioned_robot = 0; // списаны
-
-// while (true) {
-//     let robot = prompt('Какое состояние у робота?');
-
-//     if (robot == 'stop') {
-//         break;
-//     }
-//     else if (robot == 'ready') {
-//         ready_robot++;
-//     }
-//     else if (robot == 'needsRepair') {
-//         needsRepair_robot++;
-//     }
-//     else if (robot == 'decommissioned') {
-//         decommissioned_robot++;
-//     }
-// }
-
-// alert(`Состояние роботов: готовы к работе: ${ready_robot}, требуется ремонт: ${needsRepair_robot}, списаны с работы: ${decommissioned_robot}`);
-
-function inventoryRobots() {
-    let ready_robot = 0; // готовы
-    let needsRepair_robot = 0; // требуется ремонт
-    let decommissioned_robot = 0; // списаны
-    
-    while (true) {
-        let robot = prompt('Какое состояние у робота?');
-
-        if (robot == 'stop') {
-            break;
-        }
-        else if (robot == 'ready') {
-            confirm('Confirm this action?');
-            if (confirm == true) {
-                ready_robot++;
-            }
-            else {
-
+            if (index != -1) {
+                const deletedFilm = films.splice(index, 1)[0];
+                alert(`Фильм "${deletedFilm}" успешно удален!`);
+            } else {
+                alert(`Фильм "${filmToRemove}" не найден!`);
             }
         }
-        else if (robot == 'needsRepair') {
-            confirm('Confirm this action?');
-            if (confirm == true) {
-                needsRepair_robot++;
-            }
-            else {
-
-            }
-        }
-        else if (robot == 'decommissioned') {
-            confirm('Confirm this action?');
-            if (confirm == true) {
-                decommissioned_robot++;
-            }
-            else {
-
-            }
+        menushka();
+    }
+    else if (menu == '3') {
+        alert(`Ваши фильмы: ${films}`);
+        menushka();
+    }
+    else if (menu == '4') {
+        if (confirm('Выйти из программы сейчас?')) {
+            return;
+        } else {
+            menushka();
         }
     }
-    alert(`Состояние роботов: готовы к работе: ${ready_robot}, требуется ремонт: ${needsRepair_robot}, списаны с работы: ${decommissioned_robot}`);
+    else {
+        alert('Неверная команда!');
+        menushka();
+    }
 }
 
-inventoryRobots();
+menushka();
