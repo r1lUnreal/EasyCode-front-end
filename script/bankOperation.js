@@ -1,17 +1,38 @@
-const operation = prompt('Сколько снять с баланса?');
-const balance = prompt('Какой у вас баланс?');
+let bot = { 'имя': 'Алёна', 'здоровье': 100, 'атака': 40 }
 
-function bankOperation(a, b) {
-    if (a > b) {
-        alert('Недостаточно средств.');
-    }
-    else if (a <= 0) {
-        alert('Некорректная сумма.');
-    }
-    else {
-        const newBalance = b - a;
-        alert('Теперь ваш баланс: ' + newBalance);
+bot['атака'] = 78
+// или bot.атака = 78
+
+console.log(bot)
+
+let Kristina = {
+    'имя': 'Кристина',
+    'возраст': 25,
+    'работа': 'Школа программирования EasyCode',
+    'предметы': ['Питон', 'Сайты'],
+    'образование': {
+        'ВУЗ': 'СФ БашГУ',
+        'программа': 'прикладная математика и информатика'
     }
 }
+Kristina['образование']['ВУЗ'] = 'СФ УУНиИТ'
+Kristina['образование']['выпуск'] = '2023'
 
-bankOperation(operation, balance);
+
+Kristina['предметы'].push('Unity')
+Kristina['предметы'].push('Kotlin')
+Kristina['предметы'].push('GO')
+
+// Добавить
+Kristina['должность'] = 'преподаватель'
+console.log(Kristina)
+
+// Удалить
+delete Kristina['имя']
+
+// Поменять
+Kristina['возраст'] = 26
+
+if (Kristina['возраст'] > 30) {
+    console.log('пенсия скоро ура')
+}
