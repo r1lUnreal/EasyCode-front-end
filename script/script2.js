@@ -1,21 +1,23 @@
-let films = ['Сваты', 'Пёс', 'Смешарики'];
+let phone = ['Сваты', 'Пёс', 'Смешарики'];
 
 function menushka() {
     const menu = prompt(
         'Выбирите действие\n' +
-        '1. Добавить фильм\n' +
-        '2. Удалить фильм\n' +
-        '3. Весь список фильмов\n' +
-        '4. Выйти из программы\n'
+        '1. Добавить контак\n' +
+        '2. Удалить контак\n' +
+        '3. Весь список контактов\n' +
+        '4. Выйти из телефонной книги\n'
     );
 
     if (menu == '1') {
-        let pam = prompt('Введите название фильма для его добавления');
-        if (pam) films.push(pam);
+        let pam = prompt('Введите имя контакта который хотите добавить');
+        let PhoneNumber = prompt('Введите номер контакта который хотите добавить');
+        if (pam) phone.push(pam);
+        if (PhoneNumber) phone.push(PhoneNumber);
         menushka();
     }
     else if (menu === '2') {
-        let filmToRemove = prompt('Какой фильм хотите удалить?');
+        let filmToRemove = prompt('Какой контакт вы хотите удалить?');
         if (filmToRemove) {
             const index = films.findIndex(film =>
                 film.toLowerCase() === filmToRemove.toLowerCase()
@@ -23,15 +25,15 @@ function menushka() {
 
             if (index != -1) {
                 const deletedFilm = films.splice(index, 1)[0];
-                alert(`Фильм "${deletedFilm}" успешно удален!`);
+                alert(`Контак "${deletedFilm}" успешно удален!`);
             } else {
-                alert(`Фильм "${filmToRemove}" не найден!`);
+                alert(`Контакт "${filmToRemove}" не найден!`);
             }
         }
         menushka();
     }
     else if (menu == '3') {
-        alert(`Ваши фильмы: ${films}`);
+        alert(`Ваши контакты: ${phone}`);
         menushka();
     }
     else if (menu == '4') {
