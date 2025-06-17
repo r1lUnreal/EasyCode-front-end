@@ -1,4 +1,4 @@
-let phone = ['Сваты', 'Пёс', 'Смешарики'];
+let phone = [];
 
 function menushka() {
     const menu = prompt(
@@ -13,7 +13,7 @@ function menushka() {
         let pam = prompt('Введите имя контакта который хотите добавить');
         let PhoneNumber = prompt('Введите номер контакта который хотите добавить');
         if (pam) phone.push(pam);
-        if (PhoneNumber) phone.push(PhoneNumber);
+        if (PhoneNumber) phone.push(PhoneNumber, '\n');
         menushka();
     }
     else if (menu === '2') {
@@ -29,11 +29,13 @@ function menushka() {
             } else {
                 alert(`Контакт "${filmToRemove}" не найден!`);
             }
+        } else {
+            alert('error in code');
         }
         menushka();
     }
     else if (menu == '3') {
-        alert(`Ваши контакты: ${phone}`);
+        alert(`Ваши контакты:\n ${phone}`);
         menushka();
     }
     else if (menu == '4') {
