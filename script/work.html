@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="ru">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,10 +8,35 @@
     <style>
         body {
             background-color: rgb(121, 119, 137);
+            text-align: center;
+        }
+
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+        }
+
+        button:hover {
+            background-color: #45a049;
         }
     </style>
 </head>
+
 <body>
+    <h1>Скрипт уже работает. Зайди в консоль</h1>
+    <button id="openConsoleBtn">Открыть консоль (F12)</button>
+
+    <script>
+        document.getElementById('openConsoleBtn').addEventListener('click', function () {
+            alert("Нажмите F12 или Ctrl+Shift+I (Windows/Linux) / Cmd+Opt+I (Mac), чтобы открыть консоль.");
+        });
+    </script>
     <script src="script3.js"></script>
 </body>
+
 </html>
