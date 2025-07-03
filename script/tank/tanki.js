@@ -3,6 +3,7 @@ const ctx = canvas.getContext('2d');
 
 let x = 200, dx = 2;
 
+// вражеский танк 1
 function moveRect() {
     ctx.clearRect(0, 0, 800, 500)
     ctx.fillRect(x, 200, 60, 40)
@@ -13,6 +14,7 @@ function moveRect() {
     }
 }
 
+// вражеский танк 2
 function moveRect1() {
     ctx.fillRect(200, x, 40, 60)
     x += dx;
