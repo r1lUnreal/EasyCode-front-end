@@ -1,61 +1,98 @@
 const canvas = document.getElementById('gameCanvas');
 const ctx = canvas.getContext('2d');
 
-// //* квадрат -_-
-// //? ctx.fillRect(x, y, ширина, высота);
-// ctx.fillRect(400, 200, 50, 60);
-// ctx.fillStyle = 'red' // цвет
-// ctx.strokeRect(500, 300, 70, 60)
-// ctx.strokeStyle = 'green' // цвет контура
-// ctx.fillRect(350, 200, 50, 60);
-// ctx.fillStyle = 'yellow'
-// ctx.fillRect(375, 200, 50, 200);
+let x = 200, dx = 2;
 
-// // очистка
-// // ctx.clearRect(0, 0, 800, 500)
+function moveRect() {
+    ctx.clearRect(0, 0, 800, 500)
+    ctx.fillRect(x, 200, 60, 40)
+    x += dx;
+    // requestAnimationFrame(moveRect)
+    if (x >= canvas.width || x <= 0) {
+        dx = -dx
+    }
+}
 
-// // линии
-// ctx.beginPath();
-// ctx.moveTo(150, 20);
-// ctx.lineTo(180, 120);
-// ctx.lineTo(280, 120);
-// ctx.lineTo(200, 180);
-// ctx.lineTo(230, 280);
-// ctx.lineTo(150, 220);
-// ctx.lineTo(70, 280);
-// ctx.lineTo(100, 180);
-// ctx.lineTo(20, 120);
-// ctx.lineTo(120, 120);
-// ctx.closePath();
-// ctx.stroke();
+function moveRect1() {
+    ctx.fillRect(200, x, 40, 60)
+    x += dx;
+    if (x >= canvas.width || x <= 0) {
+        dx = -dx
+    }
+}
 
-// ctx.beginPath();
-// ctx.moveTo(300, 10);
-// ctx.lineTo(300, 80);
-// ctx.lineTo(400, 80);
-// ctx.lineTo(400, 10);
-// ctx.lineTo(450, -10);
-// ctx.lineTo(450, 60);
-// ctx.lineTo(400, 80);
-// ctx.lineTo(400, 10);
-// ctx.lineTo(320, 10);
-// ctx.lineTo(370, -10);
-// ctx.closePath();
-// ctx.stroke();
+// moveRect()
+// словарь Игрок
+player = {
+    x: 400,
+    y: 250,
+    w: 50,
+    h: 50,
+    speed: 5,
+    dx: 0,
+    dy: 0
+}
 
+// управление стрелками
+document.addEventListener('keydown', function (event) {
+    if (event.key == 'ArrowUp') {
+        player.dy = -player.speed
+    }
+    else if (event.key == 'ArrowDown') {
+        player.dy = player.speed
+    }
+    else if (event.key == 'ArrowRight') {
+        player.dx = player.speed
+    }
+    else if (event.key == 'ArrowLeft') {
+        player.dx = -player.speed
+    }
+});
 
-// кривая
-// ctx.beginPath();
-// ctx.moveTo(250, 300);
-// ctx.bezierCurveTo(250, 250, 200, 250, 200, 300);
-// ctx.bezierCurveTo(200, 350, 250, 400, 250, 450);
-// ctx.bezierCurveTo(250, 400, 300, 350, 300, 300);
-// ctx.bezierCurveTo(300, 250, 250, 250, 250, 300);
-// ctx.fillStyle = 'pink';
-// ctx.fill();
-// ctx.stroke();
+document.addEventListener('keyup', function (event) {
+    if (event.key == 'ArrowUp' || event.key == 'ArrowDown') {
+        player.dy = 0
+    }
+    else if (event.key == 'ArrowRight' || event.key == 'ArrowLeft') {
+        player.dx = 0
+    }
+});
 
-ctx.beginPath();
-ctx.arc(200, 75, 50, 0, Math.PI, true)
-ctx.stroke();
+// управление WASD
+document.addEventListener('keydown', function (event) {
+    if (event.code == 'KeyW') {
+        player.dy = -player.speed
+    }
+    else if (event.code == 'KeyA') {
+        player.dx = -player.speed
+    }
+    else if (event.code == 'KeyS') {
+        player.dy = player.speed
+    }
+    else if (event.code == 'KeyD') {
+        player.dx = player.speed
+    }
+});
 
+document.addEventListener('keyup', function (event) {
+    if (event.code == 'KeyW' || event.code == 'KeyS') {
+        player.dy = 0
+    }
+    else if (event.code == 'KeyA' || event.code == 'KeyD') {
+        player.dx = 0
+    }
+});
+
+function drawPleyer() {
+    ctx.fillRect(player.x, player.y, player.w, player.h);
+    player.x += player.dx
+    player.y += player.dy
+}
+
+function game() {
+    moveRect();
+    moveRect1();
+    drawPleyer()
+    requestAnimationFrame(game)
+}
+game();

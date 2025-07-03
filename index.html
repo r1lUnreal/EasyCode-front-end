@@ -1,112 +1,243 @@
 <!DOCTYPE html>
-<html>
-
+<html lang="ru">
 <head>
-    <title>Speedtest</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 20px;
-        }
-
-        button {
-            padding: 10px 15px;
-            font-size: 16px;
-        }
-
-        #results {
-            margin-top: 20px;
-            white-space: pre-line;
-        }
-    </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Финансовый менеджер</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="style.css" rel="stylesheet">
 </head>
-
 <body>
-    <button onclick="runSpeedTest()">Запустить тест скорости</button>
-    <div id="results"></div>
+    <div class="container-fluid">
+        <div class="row">
+            <!-- Боковая панель -->
+            <div class="col-md-3 col-lg-2 sidebar" id="sidebar">
+                <div class="sidebar-header">
+                    <h3><i class="fas fa-wallet"></i> Финансы</h3>
+                </div>
+                <nav class="sidebar-nav">
+                    <ul class="nav flex-column">
+                        <li class="nav-item">
+                            <a class="nav-link active" href="#" data-section="dashboard">
+                                <i class="fas fa-chart-pie"></i> Обзор
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#" data-section="transactions">
+                                <i class="fas fa-exchange-alt"></i> Транзакции
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#" data-section="budget">
+                                <i class="fas fa-piggy-bank"></i> Бюджет
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#" data-section="reports">
+                                <i class="fas fa-chart-bar"></i> Отчеты
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
 
-    <script>
-        async function runSpeedTest() {
-            const resultsDiv = document.getElementById('results');
-            resultsDiv.innerHTML = "🔄 Измерение скорости... (может занять время)";
+            <!-- Основной контент -->
+            <div class="col-md-9 col-lg-10 main-content" id="mainContent">
+                <!-- Заголовок -->
+                <div class="row mb-4">
+                    <div class="col-12">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <h1>Панель управления финансами</h1>
+                            <button class="btn btn-primary btn-lg" data-bs-toggle="modal" data-bs-target="#addTransactionModal">
+                                <i class="fas fa-plus"></i> Добавить транзакцию
+                            </button>
+                        </div>
+                    </div>
+                </div>
 
-            // Тестовые файлы с GitHub (большие бинарные файлы)
-            const testFiles = [
-                "https://raw.githubusercontent.com/pacexy/speedtest/master/10mb.bin",
-                "https://raw.githubusercontent.com/pacexy/speedtest/master/20mb.bin",
-                "https://raw.githubusercontent.com/pacexy/speedtest/master/50mb.bin"
-            ];
+                <!-- Секция Обзор -->
+                <div id="dashboard" class="content-section active">
+                    <div class="row mb-4">
+                        <div class="col-md-4 mb-3">
+                            <div class="card balance-card">
+                                <div class="card-body text-center">
+                                    <h5 class="card-title">Общий баланс</h5>
+                                    <h2 class="balance-amount">₽<span id="totalBalance">0</span></h2>
+                                    <p class="balance-change positive">+₽<span id="monthlyChange">0</span> за месяц</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4 mb-3">
+                            <div class="card income-card">
+                                <div class="card-body text-center">
+                                    <h5 class="card-title">Доходы</h5>
+                                    <h2 class="income-amount">₽<span id="totalIncome">0</span></h2>
+                                    <p>За текущий месяц</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4 mb-3">
+                            <div class="card expense-card">
+                                <div class="card-body text-center">
+                                    <h5 class="card-title">Расходы</h5>
+                                    <h2 class="expense-amount">₽<span id="totalExpense">0</span></h2>
+                                    <p>За текущий месяц</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
 
-            // Тест загрузки (3 замера)
-            let downloadSpeeds = [];
-            for (let i = 0; i < 3; i++) {
-                const fileUrl = testFiles[i % testFiles.length] + "?rand=" + Math.random();
-                try {
-                    const speed = await measureDownloadSpeed(fileUrl);
-                    downloadSpeeds.push(speed);
-                    resultsDiv.innerHTML += `\nЗагрузка ${i + 1}: ${speed.toFixed(2)} Мбит/с`;
-                } catch (error) {
-                    resultsDiv.innerHTML += `\nОшибка при замере загрузки: ${error.message}`;
-                }
-                await new Promise(resolve => setTimeout(resolve, 1000));
-            }
+                    <div class="row">
+                        <div class="col-md-8 mb-3">
+                            <div class="card">
+                                <div class="card-body">
+                                    <h5 class="card-title">Последние транзакции</h5>
+                                    <div id="recentTransactions"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4 mb-3">
+                            <div class="card">
+                                <div class="card-body">
+                                    <h5 class="card-title">Расходы по категориям</h5>
+                                    <div id="categoryChart"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
 
-            // Тест отдачи (примерный)
-            const uploadSpeed = await measureUploadSpeed();
-            resultsDiv.innerHTML += `\nОтдача: ${uploadSpeed.toFixed(2)} Мбит/с`;
+                <!-- Секция Транзакции -->
+                <div id="transactions" class="content-section">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">Все транзакции</h5>
+                            <div class="row mb-3">
+                                <div class="col-md-6">
+                                    <select class="form-select" id="categoryFilter">
+                                        <option value="">Все категории</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-6">
+                                    <select class="form-select" id="typeFilter">
+                                        <option value="">Все типы</option>
+                                        <option value="income">Доходы</option>
+                                        <option value="expense">Расходы</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div id="allTransactions"></div>
+                        </div>
+                    </div>
+                </div>
 
-            // Результаты
-            const maxDownload = Math.max(...downloadSpeeds);
-            const minDownload = Math.min(...downloadSpeeds);
-            const avgDownload = downloadSpeeds.reduce((a, b) => a + b, 0) / downloadSpeeds.length;
+                <!-- Секция Бюджет -->
+                <div id="budget" class="content-section">
+                    <div class="row">
+                        <div class="col-md-4 mb-3">
+                            <div class="card">
+                                <div class="card-body">
+                                    <h5 class="card-title">Установить бюджет</h5>
+                                    <form id="budgetForm">
+                                        <div class="mb-3">
+                                            <label class="form-label">Категория</label>
+                                            <select class="form-select" id="budgetCategory" required>
+                                                <option value="">Выберите категорию</option>
+                                            </select>
+                                        </div>
+                                        <div class="mb-3">
+                                            <label class="form-label">Сумма</label>
+                                            <input type="number" class="form-control" id="budgetAmount" required>
+                                        </div>
+                                        <button type="submit" class="btn btn-primary">Установить бюджет</button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-8 mb-3">
+                            <div class="card">
+                                <div class="card-body">
+                                    <h5 class="card-title">Текущие бюджеты</h5>
+                                    <div id="budgetList"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
 
-            resultsDiv.innerHTML += `
-                \n\n📊 Результаты:
-                \nМакс. скорость загрузки: ${maxDownload.toFixed(2)} Мбит/с
-                \nМин. скорость загрузки: ${minDownload.toFixed(2)} Мбит/с
-                \nСредняя скорость загрузки: ${avgDownload.toFixed(2)} Мбит/с
-                \nСкорость отдачи: ${uploadSpeed.toFixed(2)} Мбит/с
-            `;
-        }
+                <!-- Секция Отчеты -->
+                <div id="reports" class="content-section">
+                    <div class="row">
+                        <div class="col-md-8 mb-3">
+                            <div class="card">
+                                <div class="card-body">
+                                    <h5 class="card-title">Месячная статистика</h5>
+                                    <canvas id="monthlyChart"></canvas>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4 mb-3">
+                            <div class="card">
+                                <div class="card-body">
+                                    <h5 class="card-title">Топ категорий расходов</h5>
+                                    <div id="topCategories"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
-        // Замер скорости загрузки
-        async function measureDownloadSpeed(url) {
-            const startTime = performance.now();
-            const response = await fetch(url, { cache: "no-store" });
-            if (!response.ok) throw new Error("Не удалось загрузить файл");
-            const blob = await response.blob();
-            const endTime = performance.now();
+    <!-- Модальное окно добавления транзакции -->
+    <div class="modal fade" id="addTransactionModal" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Добавить транзакцию</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="transactionForm">
+                        <div class="mb-3">
+                            <label class="form-label">Тип</label>
+                            <select class="form-select" id="transactionType" required>
+                                <option value="income">Доход</option>
+                                <option value="expense">Расход</option>
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Категория</label>
+                            <select class="form-select" id="transactionCategory" required>
+                                <option value="">Выберите категорию</option>
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Описание</label>
+                            <input type="text" class="form-control" id="transactionDescription" required>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Сумма</label>
+                            <input type="number" class="form-control" id="transactionAmount" required>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Дата</label>
+                            <input type="date" class="form-control" id="transactionDate" required>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Отмена</button>
+                    <button type="button" class="btn btn-primary" id="saveTransaction">Сохранить</button>
+                </div>
+            </div>
+        </div>
+    </div>
 
-            // Размер в битах / время в секундах → Мбит/с
-            const fileSizeBits = blob.size * 8;
-            const durationSeconds = (endTime - startTime) / 1000;
-            return fileSizeBits / durationSeconds / 1_000_000;
-        }
-
-        // Замер скорости отдачи (примерный, через WebSocket)
-        async function measureUploadSpeed() {
-            return new Promise((resolve) => {
-                const socket = new WebSocket("wss://echo.websocket.org");
-                const testData = new Uint8Array(1 * 1024 * 1024); // 1 MB
-                let startTime;
-
-                socket.onopen = () => {
-                    startTime = performance.now();
-                    socket.send(testData);
-                };
-
-                socket.onmessage = () => {
-                    const endTime = performance.now();
-                    socket.close();
-                    const durationSeconds = (endTime - startTime) / 1000;
-                    const speed = (1 * 8) / durationSeconds; // Мбит/с
-                    resolve(speed);
-                };
-
-                socket.onerror = () => resolve(0);
-            });
-        }
-    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="js.js"></script>
 </body>
-
 </html>
