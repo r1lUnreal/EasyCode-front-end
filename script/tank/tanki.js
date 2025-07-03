@@ -5,7 +5,7 @@ let x = 200, dx = 2;
 
 // вражеский танк 1
 function moveRect() {
-    ctx.clearRect(0, 0, 800, 500)
+    ctx.clearRect(0, 0, 1000, 700)
     ctx.fillRect(x, 200, 60, 40)
     x += dx;
     // requestAnimationFrame(moveRect)
