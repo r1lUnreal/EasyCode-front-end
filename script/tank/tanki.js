@@ -11,6 +11,10 @@ player_image.src = 'image/unnamed.png'
 vrag_image = new Image()
 vrag_image.src = 'image/4bf82c3946e82c7.png'
 
+// картинка пули
+bullet_image = new Image()
+bullet_image.src = 'image/New Piskel.png'
+
 // вражеский танк 1
 function moveRect() {
     ctx.clearRect(0, 0, 1000, 700)
@@ -35,7 +39,7 @@ function moveRect1() {
 // словарь Игрок
 player = {
     x: 400,
-    y: 250,
+    y: 330,
     w: 50,
     h: 50,
     speed: 5,
@@ -110,6 +114,7 @@ function drawPleyer() {
 
 let stop = false;
 function collision() {
+    // если игрок касается врага
     if (player.x >= x && player.x <= x + 50 && player.y >= 200 && player.y <= 260) {
         document.body.style.backgroundColor = 'red';
         player.dx = 0;
@@ -120,7 +125,39 @@ function collision() {
         ctx.clearRect(0, 0, canvas.width, canvas.height);
         ctx.fillText('you dead', 400, 350)
     }
+
+    // если пуля касается врага
+    if (bullet.x >= x && bullet.x <= x + 50 && bullet.y >= 200 && bullet.y <= 260) {
+        document.body.style.backgroundColor = 'green';
+        player.dx = 0;
+        player.dy = 0;
+        x = 0;
+        stop = true;
+        ctx.font = '48px JetBrains Mono'
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        ctx.fillText('you win', 400, 350)
+    }
 }
+
+// параметры пули
+bullet = {
+    x: -10,
+    y: -10,
+    speed: 5,
+    // image: 'New Piskel.png'
+}
+
+function move_bullet() {
+    ctx.drawImage(bullet_image, bullet.x, bullet.y, 15, 15);
+    bullet.y -= bullet.speed
+}
+
+canvas.addEventListener('click', function () {
+    // document.body.style.backgroundColor = 'green'
+    bullet.x = player.x;
+    bullet.y = player.y;
+    ctx.drawImage(bullet_image, player.x, player.y, 15, 15);
+});
 
 function game() {
     if (stop == false) {
@@ -129,8 +166,7 @@ function game() {
         drawPleyer()
     }
     collision();
+    move_bullet();
     requestAnimationFrame(game)
 }
 game();
-
-//! Продал бомжа
