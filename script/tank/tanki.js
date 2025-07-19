@@ -49,9 +49,16 @@ player = {
 }
 
 // restart
+const button = document.getElementById('Button');
+document.addEventListener('click', function() {
+    window.location.reload();
+    console.log('Game restart');
+});
+
 document.addEventListener('keypress', function (event) {
     if (event.code == 'KeyR') {
         window.location.reload();
+        console.log('Game restart');
     }
 });
 
