@@ -19,5 +19,5 @@
 
 ## Установка
 1. [Скачайте файлы игры](https://github.com/r1lUnreal/EasyCode-front-end/tree/main/script/tank)
-2. Откройте index.html в браузере
+2. Откройте tanki.html в браузере
 3. Начните играть
