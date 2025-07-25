@@ -108,3 +108,5 @@
     // "workbench.colorTheme": "One Dark Pro Night Flat",
 }
 //FIXME: last update config 20.07.2025
+
+// Andromeda Fork, Better comments, Code runer, error lens, indent-rainbow, Live Server, Material Icon Theme, Markdown Editor, One dark pro, Ruff, TODO.
